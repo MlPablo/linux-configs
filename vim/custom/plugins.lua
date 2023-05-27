@@ -151,7 +151,7 @@ local plugins = {
         return false -- can't save
       end,
       write_all_buffers = false,
-      debounce_delay = 2000, -- saves the file at most every `debounce_delay` milliseconds
+      debounce_delay = 1000, -- saves the file at most every `debounce_delay` milliseconds
       callbacks = { -- functions to be executed at different intervals
         enabling = nil, -- ran when enabling auto-save
         disabling = nil, -- ran when disabling auto-save
