@@ -127,5 +127,17 @@ M.harpoon = {
   }
 }
 
+M.neotree = {
+  -- plugin = true,
+
+  n = {
+    -- toggle
+    ["<C-n>"] = { "<cmd>Neotree toggle<cr>", "Toggle nvimtree"},
+
+    -- focus
+    ["<leader>e"] = { "<cmd>Neotree focus<cr>", "Focus nvimtree" },
+  },
+}
+
 
  return M

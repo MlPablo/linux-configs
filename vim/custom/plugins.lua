@@ -14,25 +14,26 @@ local plugins = {
   },
   {
     "nvim-tree/nvim-tree.lua",
-    opts = {
-      disable_netrw = true,
-      hijack_cursor = true,
-      diagnostics  = {
-        show_on_dirs = true,
-        enable = true,
-      },
-      git = {
-        enable = true,
-        ignore = false,
-      },
-      renderer = {
-        icons = {
-          show = {
-            git = true
-          }
-        }
-      }
-    },
+    enabled= false,
+    -- opts = {
+    --   disable_netrw = true,
+    --   hijack_cursor = true,
+    --   diagnostics  = {
+    --     show_on_dirs = true,
+    --     enable = true,
+    --   },
+    --   git = {
+    --     enable = true,
+    --     ignore = false,
+    --   },
+    --   renderer = {
+    --     icons = {
+    --       show = {
+    --         git = true
+    --       }
+    --     }
+    --   }
+    -- },
   },
   {
     "neovim/nvim-lspconfig",
@@ -165,9 +166,27 @@ local plugins = {
     "nvim-lua/plenary.nvim",
   },
   {
+    "mtth/scratch.vim",
+    lazy  = false,
+  },
+  {
     "ThePrimeagen/harpoon",
     config = function (_, opts )
       require("harpoon").setup(opts)
+    end
+  },
+  {
+    "dreamsofcode-io/ChatGPT.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    },
+    config = function ()
+     require("chatgpt").setup({
+        async_api_key_cmd = "pass show personal/token/chatgpt"
+      })
     end
   }
 }
