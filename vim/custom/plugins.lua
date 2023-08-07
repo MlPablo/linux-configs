@@ -1,4 +1,17 @@
 local plugins = {
+  -- {
+  --   'Wansmer/treesj',
+  --   keys = { '<space>m', '<space>j', '<space>s' },
+  --   ft = "go",
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  --   config = function()
+  --     require('treesj').setup({--[[ your config ]]})
+  --   end,
+  -- },
+  {
+    "marko-cerovac/material.nvim",
+    lazy = false,
+  },
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
@@ -9,6 +22,9 @@ local plugins = {
       ensure_installed = {
         "rust-analyzer",
         "gopls",
+        "jsonls",
+        "taplo",
+        "bufls",
       }
     }
   },
@@ -80,7 +96,12 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("go").setup()
+      require("go").setup({
+        goimport = "gopls",  -- Set the goimport option to "gopls"
+        gopls = {
+          disable_param_in_function_signatures = true  -- Disable function parameter insertion
+        }
+      })
     end,
     event = {"CmdlineEnter"},
     ft = {"go", 'gomod'},
@@ -119,8 +140,8 @@ local plugins = {
     end
   },
   {
-    'phaazon/hop.nvim',
-    branch = 'v2',
+    'aznhe21/hop.nvim',
+    -- branch = 'master',
     config = function()
       require('hop').setup()
     end
@@ -185,9 +206,14 @@ local plugins = {
     },
     config = function ()
      require("chatgpt").setup({
-        async_api_key_cmd = "pass show personal/token/chatgpt"
+        async_api_key_cmd = ""
       })
     end
+  },
+  {
+    "skywind3000/vim-keysound",
+    lazy = false,
   }
 }
 return plugins
+

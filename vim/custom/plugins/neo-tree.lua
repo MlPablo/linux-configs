@@ -26,7 +26,7 @@ local pl = {
         folder_empty = "ﰊ",
         -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
         -- then these will never be used.
-        default = "*",
+        default = "",
         highlight = "NeoTreeFileIcon"
       },
       modified = {
@@ -124,6 +124,14 @@ local pl = {
       follow_current_file = true,
       hijack_netrw_behavior = "open_current",
       use_libuv_file_watcher = true,
+      filtered_items = {
+        hide_by_pattern = {
+          "*_test.go",
+        },
+        hide_by_name = {
+          "mocks",
+        },
+      },
     },
     event_handlers = {
       {

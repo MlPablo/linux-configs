@@ -102,6 +102,12 @@ M.general = {
     ["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>", "window right"},
     ["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>", "window down"},
     ["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>", "window up"},
+    ["<leader>X"] = {
+      function ()
+        require("nvchad_ui.tabufline").closeAllBufs()
+      end,
+      "close all buffers",
+    },
     ["<leader>n"] = {
       function ()
        require("auto-save").toggle()

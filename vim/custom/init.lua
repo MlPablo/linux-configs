@@ -1,5 +1,6 @@
 vim.opt.colorcolumn = "100"
-vim.opt.mouse = ""
+vim.opt.mouse=""
+vim.o.mouse=""
 vim.wo.relativenumber = true
 vim.o.scrolloff = 15
 vim.o.omnifunc = "v:lua.vim.lsp.omnifunc"

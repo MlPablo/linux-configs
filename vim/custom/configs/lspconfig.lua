@@ -12,6 +12,7 @@ lspconfig.gopls.setup {
   root_dir = util.root_pattern(".git"),
   settings = {
     gopls = {
+      usePlaceholders = false,
       completeUnimported = true,
       analyses = {
         unusedparams = true,
@@ -21,4 +22,21 @@ lspconfig.gopls.setup {
       gofumpt = true,
     },
   },
+}
+
+lspconfig.jsonls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"json", "jsonc"}
+}
+
+lspconfig.taplo.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+lspconfig.bufls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"proto"}
 }
